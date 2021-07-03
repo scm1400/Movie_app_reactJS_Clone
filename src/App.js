@@ -62,34 +62,40 @@
 //   );
 // }
 
-// class App extends React.Component{
-//   state = {
-//     count: 0
-//   };
-//   add = () => {
-//     //this.setState({count: this.state.count + 1 });  // this.state.count 는 좋지않은 코드
-//     this.setState(current => ({ count: this.state.count + 1})); // setState를 호출하면 render를 Refresh 해줌.
-//   };
-//   minus = () => {
-//     this.setState(current => ({ count: this.state.count - 1}));
-//   };
+/*
+class App extends React.Component{
+  state = {
+    count: 0
+  };
+  add = () => {
+    //this.setState({count: this.state.count + 1 });  // this.state.count 는 좋지않은 코드
+    this.setState(current => ({ count: this.state.count + 1})); // setState를 호출하면 render를 Refresh 해줌.
+  };
+  minus = () => {
+    this.setState(current => ({ count: this.state.count - 1}));
+  };
 
-//   componentDidMount(){console.log("component rendered");}// Component가 render를 마치고 Mount될 때 호출
-//   componentDidUpdate(){console.log("I just Updated");}// Component가 Update될 때 호출 ex) plus/minus 버튼을 누르면 render가 Refresh
-//   componentWillUnmount(){console.log("Good Bye");} // Component가 Unmount될 때 호출
-//   render(){
-//     console.log("I'm rendering");
-//     return <div>
-//         <h1>The number is: {this.state.count}</h1>
-//         <button onClick={this.add}>Add</button>
-//         <button onClick={this.minus}>Minus</button>
-//       </div>
-//   }
-// }
+
+  componentDidMount(){console.log("component rendered");}// Component가 render를 마치고 Mount될 때 호출
+  componentDidUpdate(){console.log("I just Updated");}// Component가 Update될 때 호출 ex) plus/minus 버튼을 누르면 render가 Refresh
+  componentWillUnmount(){console.log("Good Bye");} // Component가 Unmount될 때 호출
+  render(){
+    console.log("I'm rendering");
+    return <div>
+        <h1>The number is: {this.state.count}</h1>
+        <button onClick={this.add}>Add</button>
+        <button onClick={this.minus}>Minus</button>
+      </div>
+  }
+}
+*/
 import React from 'react';
-import axios from "axios"; //'npm i axos' 설치
+import axios from "axios"; 
 import Movie from "./Movie";
 import "./App.css"
+
+// 설치한 것들 : 'npm i axos', 'npm i gh-pages', 'npm i prop-types'
+
 class App extends React.Component {
   state = {
     isLoading: true,
