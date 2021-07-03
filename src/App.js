@@ -16,7 +16,6 @@
 //     image:
 //     "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F7%2F77%2FSamgyeopsal-gui.jpg%2F1200px-Samgyeopsal-gui.jpg&f=1&nofb=1"
 //     ,rating: 4.9
-
 //   }
 // ]
 
@@ -40,7 +39,6 @@
 //     <h2>I like {name}</h2>
 //     <h4>{rating}/5.0</h4>
 //     <img src ={picture} alt={name}/>
-
 //   </div>
 //   );
 // }
@@ -89,64 +87,30 @@ class App extends React.Component{
   }
 }
 */
-import React from 'react';
-import axios from "axios"; 
-import Movie from "./Movie";
-import "./App.css"
 
-// 설치한 것들 : 'npm i axos', 'npm i gh-pages', 'npm i prop-types'
+import React from "react";
+import { HashRouter, Route } from "react-router-dom";
+import Home from "./routes/Home";
+import About from "./routes/About";
+import Details from "./routes/Details";
+import "./App.css";
+import Navigation from "./components/Navigation";
 
-class App extends React.Component {
-  state = {
-    isLoading: true,
-    movies: []
-  };
-  getMovies = async () => {
-    const {
-      data: {
-        data: { movies }
-      }
-    } = await axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating");  // sort_by=rating
-    this.setState({ movies, isLoading: false });
-  };
-  componentDidMount() {
-    // setTimeout(() => {
-    //   this.setState({isLoading: false});  // setState 에서 state에 있는 항목을 호출할 필요는 없다, 새로 생성해도 됨.
-    // },6000);
-    this.getMovies();
-  }
-  render() {
-    const { isLoading, movies } = this.state;
-    return (
-    <section className="container">
-      {isLoading
-        ? (
-        <div className="loader">
-          <span className="loader__text">Loading...</span>
-        </div>
-        ) : (
-          <div className="movies">
-            {
-              movies.map(movie => (
-                <Movie
-                  key={movie.id}
-                  id={movie.id}
-                  year={movie.year}
-                  title={movie.title}
-                  summary={movie.summary}
-                  poster={movie.medium_cover_image}
-                  genres={movie.genres}
-                />
-              ))   //map을 사용하면 return이 있어야함
-            }
-          </div>
-        )}
-    </section>
-    );
-  }
+// 설치한 것들 : 'npm i axos', 'npm i gh-pages', 'npm i prop-types', 'npm i react-router-dom'
+
+function App(){
+  return (
+    // <BrowserRouter> 를 사용하면 주소에 '#'이 없음. 깃헙페이지에 설정하기가 번거로움
+    // Router 안에 있는 모든 Route들은 기본값으로 props를 가진다. 덕분에 클릭 한번으로 정보를 전달 가능.
+    <HashRouter>
+      <Navigation />
+      {/* exact 를 넣어줘야 component가 여러개 로딩되는것을 방지할 수 있음. */}
+      <Route path="/" exact={true} component={Home}/> 
+      <Route path="/about" component={About}/>
+      {/* <Route path="/movie-details" component={Details}/> */}
+      <Route path="/movie/:id" component={Details}/>
+    </HashRouter>
+  )
 }
 
-
-
 export default App;
-
