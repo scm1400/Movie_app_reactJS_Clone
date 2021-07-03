@@ -2,8 +2,6 @@
 
 ### 2021.06.26 시작
 
-### 2021.07.03 끝
-
 ### 사용한 패키지
 - 리액트 앱 생성 : 'npx create-react-app 폴더이름' , npx가 없다면 'npm i npx' 로 설치
 - axios : 'npm i axios' -> 브라우저, Node.js를 위한 Promise API를 활용하는 HTTP 비동기 통신 라이브러리
@@ -13,3 +11,5 @@
 
 ### 배포 - github page
 https://github.com/scm1400/movie_app_react_clone
+
+### 2021.07.03 완료
