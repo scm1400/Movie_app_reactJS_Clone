@@ -4,7 +4,7 @@ import axios from "axios";
 import Movie from "../components/Movie";
 import "./Home.css"
 
-// 설치한 것들 : 'npm i axos', 'npm i gh-pages', 'npm i prop-types', 'npm i react-router-dom'
+// 설치한 것들 : 'npm i axios', 'npm i gh-pages', 'npm i prop-types', 'npm i react-router-dom'
 
 class Home extends React.Component {
   state = {
