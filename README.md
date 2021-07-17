@@ -10,6 +10,6 @@
 - react-router-dom : 'npm i react-router-dom' -> 페이지가 하나인 SPA 어플리케이션인 React에서 일반 웹 사이트처럼 URL에 따른 페이지 이동을 할 수 있게 해주는 기능을 제공
 
 ### 배포 - github page
-https://github.com/scm1400/movie_app_react_clone
+https://scm1400.github.io/movie_app_react_clone
 
 ### 2021.07.03 완료
